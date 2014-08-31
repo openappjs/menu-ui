@@ -1,0 +1,17 @@
+.ui.menu {
+  display: inline-block;
+}
+.ui.menu > .controls {
+  display: block;
+}
+.ui.menu > .menu {
+  padding: 0;
+  margin: 0;
+}
+.ui.menu > .menu .item {
+
+}
+
+.ui.menu > .menu .group {
+
+}
