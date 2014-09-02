@@ -65,7 +65,7 @@ Menu.renderItem = function (state, item) {
       item.label,
     ];
   } else {
-    content = item;
+    content = [item];
   }
 
   return h('div' + className, {
