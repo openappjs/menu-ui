@@ -1,5 +1,6 @@
 var debug = require('debug')('menu-ui');
 var mercury = require('mercury');
+var AttributeHook = require('mercury/node_modules/virtual-hyperscript/hooks/attribute-hook');
 var h = mercury.h;
 var extend = require('xtend');
 
@@ -44,6 +45,11 @@ Menu.renderItem = function (state, item) {
     (item.type && ('.' + item.type) || '')
   ;
 
+  var roleName =
+    (item.type && ("menuitem" + item.type)) ||
+    "menuitem"
+  ;
+
   var style = item.type &&
     extend(
       state.style.item,
@@ -62,7 +68,8 @@ Menu.renderItem = function (state, item) {
     content = item;
   }
 
-  return h('li' + className, {
+  return h('div' + className, {
+    role: AttributeHook("menuitem"),
     style: style,
   }, content)
   ;
@@ -79,9 +86,10 @@ Menu.render = function (state, events) {
     if (typeof menuItem !== 'undefined') {
       if (Array.isArray(menuItem)) {
         menuItems.push(
-          h('li.group', {
+          h('div.group', {
+            role: AttributeHook("group"),
             style: state.style.group,
-          }, h('ul', {}, menuItem.map(renderItem)))
+          }, menuItem.map(renderItem))
         );
       } else {
         menuItems.push(renderItem(menuItem));
@@ -106,7 +114,8 @@ Menu.render = function (state, events) {
       style: state.style.controls,
     }, config.debug ? [
     ] : []),
-    h('ul.menu', {
+    h('div.menu', {
+      role: AttributeHook("menu"),
       style: state.style.menu,
     }, menuItems),
   ])
