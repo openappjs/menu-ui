@@ -10,9 +10,15 @@ require('../index.css');
 
 // create menu items
 var items = [
-  "option 1",
-  "option 2",
-  "option 3",
+  [
+    "option 1",
+    "option 2",
+    "option 3",
+  ],
+  [
+    "option 4",
+    "option 5",
+  ],
 ];
 
 // create menu-ui component
