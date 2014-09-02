@@ -95,7 +95,7 @@ Menu.render = function (state, events) {
             role: AttributeHook("group"),
             style: state.style.group,
           }, [
-            h("ul.group", {
+            h('ul.group', {
               role: AttributeHook("presentation"),
             }, menuItem.map(renderItem))
           ])
