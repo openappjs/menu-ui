@@ -68,10 +68,15 @@ Menu.renderItem = function (state, item) {
     content = [item];
   }
 
-  return h('div' + className, {
-    role: AttributeHook("menuitem"),
+  return h('li' + className, {
+    role: AttributeHook("presentation"),
     style: style,
-  }, content)
+  }, [
+    h('a', {
+      role: AttributeHook("menuitem"),
+      href: "#",
+    }, content),
+  ])
   ;
 }
 
@@ -86,10 +91,14 @@ Menu.render = function (state, events) {
     if (typeof menuItem !== 'undefined') {
       if (Array.isArray(menuItem)) {
         menuItems.push(
-          h('div.group', {
+          h('li', {
             role: AttributeHook("group"),
             style: state.style.group,
-          }, menuItem.map(renderItem))
+          }, [
+            h("ul.group", {
+              role: AttributeHook("presentation"),
+            }, menuItem.map(renderItem))
+          ])
         );
       } else {
         menuItems.push(renderItem(menuItem));
@@ -114,7 +123,7 @@ Menu.render = function (state, events) {
       style: state.style.controls,
     }, config.debug ? [
     ] : []),
-    h('div.menu', {
+    h('ul.menu', {
       role: AttributeHook("menu"),
       style: state.style.menu,
     }, menuItems),
