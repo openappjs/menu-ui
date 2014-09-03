@@ -30,8 +30,8 @@ var menu = Menu({
     },
   },
   config: {
-    debug: true,
-    debugToggle: true,
+//    debug: true,
+//    debugToggle: true,
   },
 });
 
