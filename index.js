@@ -36,6 +36,7 @@ function Menu (options) {
 
   // setup events
   events.setDebug(function (data) {
+    debug("setDebug", data);
     state.config.debug.set(data.debug);
   });
 
