@@ -110,7 +110,7 @@ Menu.render = function (state, events) {
     }
   }
 
-  debug("rendering menu", menuItems);
+  debug("rendering menu items", menuItems);
 
   var config = state.config;
 
