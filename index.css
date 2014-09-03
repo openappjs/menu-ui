@@ -7,11 +7,23 @@
 .ui.menu > .menu {
   padding: 0;
   margin: 0;
+  list-style: none;
 }
 .ui.menu > .menu .item {
-
 }
 
-.ui.menu > .menu .group {
+.ui.menu > .menu .item > a {
+  height: inherit;
+  width: inherit;
+  text-decoration: none;
+}
+
+.ui.menu > .menu .group  {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.ui.menu > .menu .group .item {
 
 }
