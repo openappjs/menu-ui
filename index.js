@@ -140,7 +140,9 @@ Menu.render = function (state, events) {
     ] : []),
     h('button.menu.toggle', {
       name: "showMenu",
-      'ev-click': mercury.changeEvent(state.events.setShowMenu),
+      'ev-click': mercury.event(state.events.setShowMenu, {
+        showMenu: !transient.showMenu,
+      }),
     }, state.model.menuName),
     h('ul.menu', {
       role: AttributeHook("menu"),
