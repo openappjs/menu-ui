@@ -4,18 +4,51 @@
 .ui.menu > .controls {
   display: block;
 }
-.ui.menu > .menu {
+.ui.menu > .menu.toggle {
+}
+.ui.menu > ul.menu {
+  display: block;
   padding: 0;
   margin: 0;
   list-style: none;
+
+  /* semantic-ui */
+  cursor: auto;
+  position: absolute;
+  top: 100%;
+  margin: 0;
+  background-color: #FFF;
+  min-width: 100%;
+  white-space: nowrap;
+  font-size: .875em;
+  text-shadow: none;
+  box-shadow: 0 0 1px 1px rgba(0,0,0,.1);
+  border-radius: 0 0 .325em .325em;
+  transition: opacity .2s ease;
 }
 .ui.menu > .menu .item {
+
+  /* semantic-ui */
+  cursor: pointer;
+  border: none;
+  border-top: 1px solid rgba(0,0,0,.05);
+  height: auto;
+  display: block;
+  color: rgba(0,0,0,.75);
+  padding: .85em 1em!important;
+  font-size: .875rem;
+  text-transform: none;
+  font-weight: 400;
+  text-align: left;
+  -webkit-touch-callout: none;
 }
 
 .ui.menu > .menu .item > a {
+  display: block;
   height: inherit;
   width: inherit;
   text-decoration: none;
+  padding: 1em;
 }
 
 .ui.menu > .menu .group  {

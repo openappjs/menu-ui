@@ -113,6 +113,8 @@ Menu.render = function (state, events) {
 
   debug("rendering menu items", menuItems);
 
+  var style = state.style;
+  style.menu = style.menu || {};
   var config = state.config;
 
   return h('div.menu.ui', {
@@ -130,7 +132,9 @@ Menu.render = function (state, events) {
     ] : []),
     h('ul.menu', {
       role: AttributeHook("menu"),
-      style: state.style.menu,
+      style: extend(style.menu, {
+        display: transient.showMenu ? style.menu.display : "none",
+      }),
     }, menuItems),
   ])
   ;
