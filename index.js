@@ -10,7 +10,7 @@ function Menu (options) {
   var style = options.style || {};
   var config = options.config || {};
 
-  var events = mercury.input(["setDebug"]);
+  var events = mercury.input(["setShowMenu", "setDebug"]);
 
   // setup state
   var state = mercury.struct({
@@ -26,6 +26,9 @@ function Menu (options) {
       itemcheckbox: mercury.value(style.itemcheckbox || {}),
       itemradio: mercury.value(style.itemradio || {}),
     }),
+    transient: mercury.struct({
+      showMenu: mercury.value(false),
+    }),
     config: mercury.struct({
       debug: mercury.value(config.debug || false),
       debugToggle: mercury.value(config.debugToggle || false),
@@ -35,6 +38,10 @@ function Menu (options) {
   });
 
   // setup events
+  events.setShowMenu(function (data) {
+    debug("setShowMenu", data);
+    state.transient.showMenu.set(data.showMenu);
+  });
   events.setDebug(function (data) {
     debug("setDebug", data);
     state.config.debug.set(data.debug);
@@ -113,6 +120,7 @@ Menu.render = function (state, events) {
 
   debug("rendering menu items", menuItems);
 
+  var transient = state.transient;
   var style = state.style;
   style.menu = style.menu || {};
   var config = state.config;
@@ -130,6 +138,10 @@ Menu.render = function (state, events) {
       style: state.style.controls,
     }, config.debug ? [
     ] : []),
+    h('button.menu.toggle', {
+      name: "showMenu",
+      'ev-click': mercury.changeEvent(state.events.setShowMenu),
+    }, state.model.menuName),
     h('ul.menu', {
       role: AttributeHook("menu"),
       style: extend(style.menu, {
