@@ -23,7 +23,10 @@ var items = [
 
 // create menu-ui component
 var menu = Menu({
-  model: items,
+  model: {
+    name: "menu",
+    items: items,
+  },
   style: {
     ui: {
       backgroundColor: 'green',

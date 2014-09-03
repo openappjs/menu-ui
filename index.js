@@ -6,6 +6,7 @@ var extend = require('xtend');
 
 function Menu (options) {
   options = options || {};
+  var model = options.model || {};
   var style = options.style || {};
   var config = options.config || {};
 
@@ -13,7 +14,10 @@ function Menu (options) {
 
   // setup state
   var state = mercury.struct({
-    model: mercury.array(options.model),
+    model: mercury.struct({
+      menuName: mercury.value(model.name),
+      items: mercury.array(model.items),
+    }),
     style: mercury.struct({
       ui: mercury.value(style.ui || {}),
       menu: mercury.value(style.menu || {}),
@@ -84,8 +88,8 @@ Menu.render = function (state, events) {
   debug("render", state, events);
 
   var menuItems = [];
-  for (var i = 0; i < state.model.length; i++) {
-    var menuItem = state.model[i];
+  for (var i = 0; i < state.model.items.length; i++) {
+    var menuItem = state.model.items[i];
     var renderItem = Menu.renderItem.bind(null, state);
 
     if (typeof menuItem !== 'undefined') {
