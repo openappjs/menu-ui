@@ -46,7 +46,7 @@ test("creating a menu of random content", function (t) {
     t.equal(controls.className, "controls");
     var button = el.childNodes[1];
     t.ok(button);
-    t.equal(button.className, "menu toggle");
+    t.equal(button.className, "menu");
     var buttonContent = button.childNodes[0];
     t.equal(buttonContent.textContent || buttonContent.data, "Menu");
     var menu = el.childNodes[2];
@@ -95,7 +95,7 @@ test("creating a menu of random grouped content", function (t) {
     t.equal(controls.className, "controls");
     var button = el.childNodes[1];
     t.ok(button);
-    t.equal(button.className, "menu toggle");
+    t.equal(button.className, "menu");
     var menu = el.childNodes[2];
     t.ok(menu);
     t.equal(menu.className, "menu");
