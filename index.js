@@ -12,10 +12,17 @@ function Menu (options) {
 
   var events = mercury.input(["setShowMenu", "setDebug"]);
 
+  var firstItem = model.items[0] &&
+    (model.items[0][0] || model.items[0]) ||
+    '';
+
+  var label = model.label ||
+    firstItem.label || firstItem;
+
   // setup state
   var state = mercury.struct({
     model: mercury.struct({
-      menuName: mercury.value(model.name),
+      label: mercury.value(label),
       items: mercury.array(model.items),
     }),
     style: mercury.struct({
@@ -143,7 +150,7 @@ Menu.render = function (state, events) {
       'ev-click': mercury.event(state.events.setShowMenu, {
         showMenu: !transient.showMenu,
       }),
-    }, state.model.menuName),
+    }, state.model.label),
     h('ul.menu', {
       role: AttributeHook("menu"),
       style: extend(style.menu, {

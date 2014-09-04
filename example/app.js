@@ -24,7 +24,6 @@ var items = [
 // create menu-ui component
 var menu = Menu({
   model: {
-    name: "menu",
     items: items,
   },
   style: {
