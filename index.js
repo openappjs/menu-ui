@@ -147,6 +147,8 @@ Menu.render = function (state, events) {
     h('ul.menu', {
       role: AttributeHook("menu"),
       style: extend(style.menu, {
+        position: transient.showMenu ? "relative" : "absolute",
+        top: transient.showMenu ? "0": "100%",
         display: transient.showMenu ? style.menu.display : "none",
       }),
     }, menuItems),
