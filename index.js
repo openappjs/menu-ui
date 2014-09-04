@@ -145,7 +145,7 @@ Menu.render = function (state, events) {
       style: state.style.controls,
     }, config.debug ? [
     ] : []),
-    h('button.menu.toggle', {
+    h('button.menu', {
       name: "showMenu",
       'ev-click': mercury.event(state.events.setShowMenu, {
         showMenu: !transient.showMenu,
