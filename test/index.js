@@ -28,7 +28,10 @@ test("creating a menu of random content", function (t) {
     "0","one","2","three","2*2","25/5",
   ];
   var menu = Menu({
-    model: items,
+    model: {
+      name: "Menu",
+      items: items,
+    },
   });
 
   // start app
@@ -41,17 +44,25 @@ test("creating a menu of random content", function (t) {
     var controls = el.childNodes[0];
     t.ok(controls);
     t.equal(controls.className, "controls");
-    var menu = el.childNodes[1];
+    var button = el.childNodes[1];
+    t.ok(button);
+    t.equal(button.className, "menu toggle");
+    var buttonContent = button.childNodes[0];
+    t.equal(buttonContent.textContent || buttonContent.data, "Menu");
+    var menu = el.childNodes[2];
     t.ok(menu);
     t.equal(menu.className, "menu");
 
     for (var i = 0; i < menu.childNodes.length; i++) {
       var itemContainer = menu.childNodes[i];
+      t.equal(itemContainer.getAttribute('role'), "presentation");
       t.equal(itemContainer.className, "item");
       t.equal(itemContainer.childNodes.length, 1);
       var item = itemContainer.childNodes[0];
+      t.equal(item.getAttribute('role'), "menuitem");
+      var itemContent = item.childNodes[0];
       t.equal(
-        item.textContent || item.data,
+        itemContent.textContent || itemContent.data,
         items[i]
       );
     }
