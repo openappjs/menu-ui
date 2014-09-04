@@ -70,3 +70,60 @@ test("creating a menu of random content", function (t) {
     end(t, el, elRm);
   });
 });
+
+test("creating a menu of random grouped content", function (t) {
+  // setup
+  var items = [
+    ["0","one","2"],["three","2*2","25/5"],
+  ];
+  var menu = Menu({
+    model: {
+      name: "Grouped Menu",
+      items: items,
+    },
+  });
+
+  // start app
+  var elRm = mercury.app(document.body, menu.state, Menu.render);
+
+  // after render
+  raf(function () {
+    var el = document.getElementsByClassName('menu ui')[0];
+
+    var controls = el.childNodes[0];
+    t.ok(controls);
+    t.equal(controls.className, "controls");
+    var button = el.childNodes[1];
+    t.ok(button);
+    t.equal(button.className, "menu toggle");
+    var menu = el.childNodes[2];
+    t.ok(menu);
+    t.equal(menu.className, "menu");
+
+    for (var i = 0; i < menu.childNodes.length; i++) {
+      var groupContainer = menu.childNodes[i];
+      t.equal(groupContainer.getAttribute('role'), "group");
+      t.equal(groupContainer.childNodes.length, 1);
+      var group = groupContainer.childNodes[0];
+      t.equal(group.className, "group");
+      t.equal(group.getAttribute('role'), "presentation");
+      t.equal(group.childNodes.length, items[i].length);
+
+      for (var j = 0; j < group.childNodes.length; j++) {
+        var itemContainer = group.childNodes[j];
+        t.equal(itemContainer.getAttribute('role'), "presentation");
+        t.equal(itemContainer.className, "item");
+        t.equal(itemContainer.childNodes.length, 1);
+        var item = itemContainer.childNodes[0];
+        t.equal(item.getAttribute('role'), "menuitem");
+        var itemContent = item.childNodes[0];
+        t.equal(
+          itemContent.textContent || itemContent.data,
+          items[i][j]
+        );
+      }
+    }
+
+    end(t, el, elRm);
+  });
+});
