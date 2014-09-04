@@ -29,7 +29,7 @@ test("creating a menu of random content", function (t) {
   ];
   var menu = Menu({
     model: {
-      name: "Menu",
+      label: "Menu",
       items: items,
     },
   });
@@ -78,7 +78,7 @@ test("creating a menu of random grouped content", function (t) {
   ];
   var menu = Menu({
     model: {
-      name: "Grouped Menu",
+      label: "Grouped Menu",
       items: items,
     },
   });
