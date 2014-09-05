@@ -4,10 +4,10 @@ var mercury = require('mercury');
 function Menu (options) {
   options = options || {};
 
-  var events = mercury.input(["setShowMenu", "setActive", "setDebug"]);
+  var events = mercury.input(["itemClick", "setShowMenu", "setDebug"]);
   var state = require('./lib/state')(options, events);
-  var update = require('./lib/update')(state);
-  require('./lib/input')(events, update);
+  var update = require('./lib/update')(options, state);
+  require('./lib/input')(options, events, update);
 
   debug("setup", state());
 

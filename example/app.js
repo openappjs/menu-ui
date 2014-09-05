@@ -21,11 +21,29 @@ var items = [
   ],
 ];
 
+// create update functions
+var update = {
+  log: function (state) {
+    return console.log.bind(console);
+  },
+};
+
+// create input functions
+var input = {
+  itemClick: function (update) {
+    return function (data) {
+      update.log(data);
+    };
+  },
+};
+
 // create menu-ui component
 var menu = Menu({
   model: {
     items: items,
   },
+  update: update,
+  input: input,
   style: {
     ui: {
       backgroundColor: 'green',
