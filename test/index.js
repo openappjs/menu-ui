@@ -41,15 +41,12 @@ test("creating a menu of random content", function (t) {
   raf(function () {
     var el = document.getElementsByClassName('menu ui')[0];
 
-    var controls = el.childNodes[0];
-    t.ok(controls);
-    t.equal(controls.className, "controls");
-    var button = el.childNodes[1];
+    var button = el.childNodes[0];
     t.ok(button);
     t.equal(button.className, "menu");
     var buttonContent = button.childNodes[0];
     t.equal(buttonContent.textContent || buttonContent.data, "Menu");
-    var menu = el.childNodes[2];
+    var menu = el.childNodes[1];
     t.ok(menu);
     t.equal(menu.className, "menu");
 
@@ -90,13 +87,10 @@ test("creating a menu of random grouped content", function (t) {
   raf(function () {
     var el = document.getElementsByClassName('menu ui')[0];
 
-    var controls = el.childNodes[0];
-    t.ok(controls);
-    t.equal(controls.className, "controls");
-    var button = el.childNodes[1];
+    var button = el.childNodes[0];
     t.ok(button);
     t.equal(button.className, "menu");
-    var menu = el.childNodes[2];
+    var menu = el.childNodes[1];
     t.ok(menu);
     t.equal(menu.className, "menu");
 
