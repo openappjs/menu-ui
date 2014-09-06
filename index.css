@@ -4,9 +4,9 @@
 .ui.menu > .controls {
   display: block;
 }
-.ui.menu > button.menu {
+.ui.menu > .label {
 }
-.ui.menu > ul.menu {
+.ui.menu > .items {
   display: block;
   padding: 0;
   margin: 0;
@@ -24,7 +24,7 @@
   border-radius: 0 0 .325em .325em;
   transition: opacity .2s ease;
 }
-.ui.menu > .menu .item {
+.ui.menu > .items .item {
 
   /* semantic-ui */
   cursor: pointer;
@@ -41,7 +41,7 @@
   -webkit-touch-callout: none;
 }
 
-.ui.menu > .menu .item > a {
+.ui.menu > .items .item > a {
   display: block;
   height: inherit;
   width: inherit;
@@ -49,12 +49,12 @@
   padding: 1em;
 }
 
-.ui.menu > .menu .group  {
+.ui.menu > .items .group  {
   padding: 0;
   margin: 0;
   list-style: none;
 }
 
-.ui.menu > .menu .group .item {
+.ui.menu > .items .group .item {
 
 }
