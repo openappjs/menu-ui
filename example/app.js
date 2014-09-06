@@ -40,6 +40,7 @@ var input = {
 // create menu-ui component
 var menu = Menu({
   model: {
+    label: "menu",
     items: items,
   },
   update: update,
