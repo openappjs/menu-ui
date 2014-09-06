@@ -20,7 +20,7 @@ npm i --save menu-ui
 
 ## example
 
-`npm run examples` to run an [example apps](./examples/).
+`npm run examples` to run [example apps](./examples/).
 
 ## license
 
