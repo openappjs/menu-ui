@@ -1,12 +1,12 @@
 var mercury = require('mercury');
 
-var Menu = require('../');
+var Menu = require('../../');
 
 // include app styling
 require('./app.css');
 
 // include menu-ui styling
-require('../index.css');
+require('../../index.css');
 
 // create menu items
 var items = [
