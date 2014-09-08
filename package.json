@@ -4,8 +4,8 @@
   "description": "menu user interface",
   "main": "index.js",
   "scripts": {
-    "examples": "bin/examples",
-    "examples-build": "bin/examples-build",
+    "examples": "exampler-develop",
+    "examples-build": "exampler-build",
     "test": "node test/index.js | tap-spec",
     "travis-test": "npm run phantom && npm run cover && istanbul report lcov && ((cat coverage/lcov.info | coveralls) || exit 0)",
     "phantom": "run-browser test/index.js -b | tap-spec",
@@ -62,16 +62,14 @@
     "xtend": "^4.0.0"
   },
   "devDependencies": {
-    "beefy": "^2.1.0",
     "coveralls": "^2.11.1",
     "cssify": "^0.5.1",
     "envify": "^2.0.1",
-    "express": "^4.8.8",
+    "exampler": "^0.1.0",
     "istanbul": "^0.3.0",
     "ndarray": "^1.0.15",
     "raf": "^2.0.2",
     "run-browser": "^1.3.1",
-    "swig": "^1.4.2",
     "synthetic-dom-events": "git://github.com/Raynos/synthetic-dom-events",
     "tap-spec": "^0.2.0",
     "tape": "^2.14.0",
