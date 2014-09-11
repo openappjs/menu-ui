@@ -56,6 +56,7 @@
   },
   "dependencies": {
     "debug": "^1.0.4",
+    "get-in": "^1.2.0",
     "global": "^4.2.1",
     "mercury": "git://github.com/ahdinosaur/mercury#82",
     "observ-ndarray": "^0.2.0",
