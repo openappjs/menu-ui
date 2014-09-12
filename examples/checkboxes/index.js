@@ -3,22 +3,23 @@ var mercury = require('mercury');
 var Menu = require('../../');
 
 // include app styling
-require('./app.css');
+require('./index.css');
 
 // include menu-ui styling
 require('../../index.css');
 
 // create menu items
 var items = [
-  [
-    "option 1",
-    "option 2",
-    "option 3",
-  ],
-  [
-    "option 4",
-    "option 5",
-  ],
+  {
+    label: "option 1",
+    type: "checkbox",
+  }, {
+    label: "option 2",
+    type: "checkbox",
+  }, {
+    label: "option 3",
+    type: "checkbox",
+  },
 ];
 
 // create update functions
